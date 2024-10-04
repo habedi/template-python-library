@@ -7,8 +7,7 @@ omit =
 
 # Include source files only from certain directories
 source =
-    bin
-    src
+    src/
 
 # Set parallel to true if you run tests in parallel
 parallel = True

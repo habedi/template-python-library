@@ -1,30 +1,37 @@
-# Template for Python Projects
+# Template for a Python Library
 
-[![Tests](https://github.com/habedi/template-python-project-repo/actions/workflows/tests.yml/badge.svg)](https://github.com/habedi/template-python-project-repo/actions/workflows/tests.yml)
-[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red.svg)](https://github.com/habedi/template-python-project-repo)
+[![Tests](https://github.com/habedi/template-python-library/actions/workflows/tests.yml/badge.svg)](https://github.com/habedi/template-python-library/actions/workflows/tests.yml)
+[![PyPI version](https://badge.fury.io/py/template-python-library-placeholder.svg)](https://badge.fury.io/py/template-python-library-placeholder)
+[![License](https://img.shields.io/github/license/habedi/template-python-library)](https://github.com/habedi/template-python-library/blob/main/LICENSE)
+[![Python version](https://img.shields.io/badge/Python-%3E=3.10-blue)](https://github.com/habedi/template-python-library)
+[![Pip downloads](https://img.shields.io/pypi/dm/template-python-library-placeholder.svg)](https://pypi.org/project/template-python-library-placeholder)
+[![CodeFactor](https://www.codefactor.io/repository/github/habedi/template-python-library/badge)](https://www.codefactor.io/repository/github/habedi/template-python-library)
 
-This repository is as a template for starting Python projects. It includes a basic structure for organizing the things
-like code,
-data, and notebooks, as well as a configuration file for managing the dependencies using Poetry. The repository also
-includes a GitHub Actions workflow for running tests on the codebase.
+This is a template repository to make it easier to start developing Python libraries. The repository includes the basic
+structure for a Python library, including the code for a dummy package, unit tests, and GitHub Actions workflows for
+running tests and deploying the library to PyPI.
 
-I made it mainly for my personal and professional machine learning data science projects, but feel free to use it
-as a starting point for your own projects if you find it useful.
+As said above, I've created this template to make it easier to create new Python libraries. I hope you find it useful
+as well. If you have any suggestions or improvements, feel free to open an issue or a pull request.
 
-## Installing Poetry
+## Getting Started
 
-We use [Poetry](https://python-poetry.org/) for managing the dependencies and virtual environment for the project. To
-get
-started, you need to install Poetry on your machine. We can install Poetry by running the following command in the
-command
-line using pip.
+To get started with this template, you can click on the `Use this template` button at the top of the repository. This
+will create a new repository with the same structure as this one. You can then clone the repository to your local
+machine and start developing your own Python library.
+
+### Installing Poetry
+
+We will use [Poetry](https://python-poetry.org/) to manage the dependencies and the Python virtual environment. To
+get started, you need to install Poetry on your machine. We can install Poetry by running the following command in the
+command line using pip.
 
 ```bash
 pip install poetry
 ```
 
 When the installation is finished, run the following command in the shell in the root folder of this repository to
-install the dependencies, and create a virtual environment for the project.
+install the dependencies, and create a virtual environment we can use for development.
 
 ```bash
 poetry install
@@ -36,20 +43,82 @@ After that, enter the Poetry environment by invoking the poetry shell command.
 poetry shell
 ```
 
-## Folder Structure
+### Unit Tests and Code Coverage
 
-The repository has the following structure:
+We use [pytest](https://docs.pytest.org/en/stable/) to run the tests. To run the tests with code coverage, you can
+run the following command in the shell.
 
-- `bin/`: scripts and executables for command line use
-- `data/`: data files and datasets
-- `src/`: source code files
-- `notebooks/`: Jupyter notebooks files
-- `models/`: trained models and model files
-- `tests/`: test files for the source code
-- `pyproject.toml`: project metadata and dependencies
-- `LICENSE`: license information
-- `README.md`: project information and instructions
+```bash
+poetry run pytest tests/ --cov
+```
 
-## License
+You can edit the entries under `[tool.pytest.ini_options]` in the `pyproject.toml` file to configure pytest behaviour.
+You can also edit the `.coveragerc` file to configure the coverage report generation.
 
-Files in this repository are licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Building and Publishing
+
+As said before, we use Poetry to manage the dependencies and virtual environment. To build the pip package, you can
+run
+the following command in the shell.
+
+```bash
+poetry build
+```
+
+This command will create a `dist` folder in the root directory, which contains the built version of the
+library. To publish the library to PyPI, you can run the following command in the shell.
+
+```bash
+poetry publish
+```
+
+Note that you need to have a PyPI account and a valid API token to publish the library on PyPI. You can find more
+information
+about
+publishing pip packages to PyPI in the [Poetry documentation](https://python-poetry.org/docs/repositories/).
+
+### Files and Folders
+
+The main files and folders in this repository are:
+
+- `.github`: Contains the GitHub Actions workflows for running tests and deploying the built version of the library to
+  PyPI.
+- `assets`: Contains the asset files for the library, like images, logos, etc.
+- `docs`: Contains the documentation for the library.
+- `src`: Includes the source code for the library. You can create multiple packages and modules in this folder. The
+  `src/package` folder contains a dummy package with a dummy class and method.
+- `tests`: Contains the unit tests for the functions and methods in the library.
+- `.editorconfig`: Configuration file for the code editor settings for consistent coding style.
+- `.gitignore`: Python-specific gitignore file to exclude the files generated by Python and Poetry.
+- `.gitattributes`: Configuration file for Git LFS.
+- `LICENSE`: The license file for the library.
+- `pyproject.toml`: The configuration file for Poetry, which manages the dependencies and virtual environment.
+
+### Example
+
+Here is an example of how you can use the code in the library after building and installing it as a pip package.
+
+```python
+from src.package.module import DummyClass
+
+dummy = DummyClass()
+
+print(dummy.dummy_method())
+```
+
+Before running the code, you need to install the library in the current environment. You can use Poetry to do this by
+running the following commands in the shell.
+
+```bash
+poetry build
+poetry install
+```
+
+### Notes
+
+- To publish the library to PyPI, you need to have a PyPI account and a valid API token. You can find more
+  information about publishing pip packages to PyPI in
+  the [Poetry documentation](https://python-poetry.org/docs/repositories/).
+- To run the `.github/workflows/publish_to_pypi.yml` workflow, you need to set the `PYPI_API_TOKEN` secret for
+  the repository. You can find more information about repository secrets in the
+  [GitHub documentation](https://docs.github.com/en/actions/reference/encrypted-secrets).

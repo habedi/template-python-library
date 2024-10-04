@@ -1,26 +1,36 @@
 [tool.poetry]
-name = "template-python-project-repo"
+name = "template-python-library"
 version = "0.1.0"
-description = "A template for a data science or machine learning project in Python."
+description = "A template repository to help with developing Python libraries."
 authors = ["Hassan Abedi <hassan.abedi.t@gmail.com>"]
+maintainers = ["Hassan Abedi <hassan.abedi.t@gmail.com>"]
+license = "MIT"
 readme = "README.md"
-packages = [{ include = "template_python_project_repo" }]
+include = ["README.md", "LICENSE"]
+packages = [{ include = "src", from = "." }]
+repository = "https://github.com/habedi/template-python-library"
+documentation = "https://github.com/habedi/template-python-library/blob/main/docs/index.md"
+classifiers = [
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["template", "python", "library"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 pylint = "^3.0.3"
 pytest = "^8.0.1"
-jupyter = "^1.0.0"
-seaborn = "^0.13.2"
-pandas = "^2.2.1"
+pytest-cov = "^5.0.0"
+pytest-mock = "^3.14.0"
 mypy = "^1.11.1"
+poetry-dynamic-versioning = "^1.4.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-pythonpath = [".", "bin", "src"]
+pythonpath = [".", "package"]
 
 [tool.mypy]
 python_version = "3.10"
@@ -28,3 +38,8 @@ ignore_missing_imports = true
 disallow_untyped_calls = true
 strict_optional = true
 warn_redundant_casts = true
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+versioning = "semver"  # Semantic Versioning

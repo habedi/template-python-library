@@ -2,6 +2,7 @@ name: Tests
 
 on:
   workflow_dispatch: # Only enable manual runs for now
+  workflow_call: # Make this workflow available to be called by other workflows
 
 jobs:
   build:
@@ -10,14 +11,14 @@ jobs:
     strategy:
       matrix:
         # Define the Python versions to test against
-        python-version: [ "3.9", "3.10", "3.11" ]
+        python-version: [ "3.10", "3.11", "3.12" ]
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set Up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -34,10 +35,9 @@ jobs:
         continue-on-error: false
 
       - name: Upload Test Results and Coverage Reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: test-results-and-coverage
+          name: test-results-and-coverage-${{ matrix.python-version }}
           path: |
             junit/test-results-${{ matrix.python-version }}.xml
             htmlcov/
-
