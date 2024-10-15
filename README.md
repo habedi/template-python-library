@@ -1,10 +1,12 @@
 # Template for a Python Library
+<img src="assets/logo.svg" align="right" width="25%"/>
 
 [![Tests](https://github.com/habedi/template-python-library/actions/workflows/tests.yml/badge.svg)](https://github.com/habedi/template-python-library/actions/workflows/tests.yml)
 [![PyPI version](https://badge.fury.io/py/template-python-library-placeholder.svg)](https://badge.fury.io/py/template-python-library-placeholder)
 [![License](https://img.shields.io/github/license/habedi/template-python-library)](https://github.com/habedi/template-python-library/blob/main/LICENSE)
 [![Python version](https://img.shields.io/badge/Python-%3E=3.10-blue)](https://github.com/habedi/template-python-library)
 [![Pip downloads](https://img.shields.io/pypi/dm/template-python-library-placeholder.svg)](https://pypi.org/project/template-python-library-placeholder)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![CodeFactor](https://www.codefactor.io/repository/github/habedi/template-python-library/badge)](https://www.codefactor.io/repository/github/habedi/template-python-library)
 
 This is a template repository to make it easier to start developing Python libraries. The repository includes the basic
