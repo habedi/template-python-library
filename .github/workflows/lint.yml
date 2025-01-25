@@ -1,8 +1,11 @@
-name: Tests
+name: Run Linting
 
 on:
   workflow_dispatch: # Only enable manual runs for now
   workflow_call: # Make this workflow available to be called by other workflows
+  push:
+    tags:
+      - 'v*' # Trigger on version tags
 
 jobs:
   build:
@@ -10,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        # Define the Python versions to test against
+        # Define the Python versions check against
         python-version: [ "3.10", "3.11", "3.12", "3.13" ]
 
     steps:
@@ -28,16 +31,8 @@ jobs:
           make setup
           make install
 
-        # Run tests and generate the coverage report
+        # Run linting checks
       - name: Run Tests with Coverage
         run: |
-          # make coverage
-          make codecov
+          make lint
         continue-on-error: false
-
-        # Upload the coverage report to Codecov
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-        continue-on-error: true
