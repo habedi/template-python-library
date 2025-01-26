@@ -43,7 +43,9 @@ I'm sharing this template in case others find it useful.
 - `Poetry` (should work with `uv` as well)
 - `GNU Make`
 
-Tested on `Ubuntu 24.04 LTS` and `Debian 12`. But the template should work on other operating systems as well.
+> [!NOTE]
+> Tested on `Ubuntu 24.04 LTS` and `Debian 12`. But the template should work on other operating systems as well.
+> You also need to have GNU Make installed on your system if you want to use the `Makefile`.
 
 ### Setting Things Up
 
