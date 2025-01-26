@@ -2,6 +2,9 @@ name: Publish to PyPI
 
 on:
   workflow_dispatch: # Enable manual runs
+  push:
+    tags:
+      - 'v*' # Trigger on version tags
 
 jobs:
 
@@ -24,17 +27,12 @@ jobs:
 
       - name: Install Poetry
         run: |
-          pip install poetry
+          make setup
 
-      - name: Install Dependencies
+      - name: Install Python Dependencies
         run: |
-          poetry install
-
-      #      - name: Update Version
-      #        run: |
-      #          poetry version patch # Use 'minor' or 'major' for minor or major version bumps
+          make install
 
       - name: Build and Publish Package
         run: |
-          poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }} # Make sure you've set `secrets.PYPI_API_TOKEN`
-          poetry publish --build
+          PYPI_TOKEN=${{ secrets.PYPI_API_TOKEN }} make publish # Need `PYPI_API_TOKEN` secret

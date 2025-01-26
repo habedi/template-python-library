@@ -5,6 +5,7 @@ from src.package.module import DummyClass
 
 # Let's write some unit tests using pytest and arrange-act-assert pattern
 
+
 def test_dummy_class():
     # Arrange
     dummy = DummyClass()
