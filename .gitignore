@@ -41,6 +41,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+.benchmarks/
 
 # IDE specific files and directories
 .idea/
