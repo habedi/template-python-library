@@ -18,7 +18,7 @@ setup: ## Install dependencies (need sudo and make already installed)
 
 .PHONY: install
 install: ## Install Python dependencies
-	$(POETRY) install
+	$(POETRY) install --no-root
 
 .PHONY: update
 update: ## Update Python dependencies
