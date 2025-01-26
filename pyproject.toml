@@ -18,13 +18,14 @@ keywords = ["template", "python", "library"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-poetry-dynamic-versioning = "^1.4.0"
+
+[tool.poetry.group.dev.dependencies] # Development dependencies (need `--with=dev` flag)
 pytest = "^8.0.1"
 pytest-cov = "^6.0.0"
 pytest-mock = "^3.14.0"
+pytest-benchmark = "^5.1.0"
 mypy = "^1.11.1"
 ruff = "^0.9.3"
-
 
 [build-system]
 requires = ["poetry-core"]
@@ -39,11 +40,6 @@ ignore_missing_imports = true
 disallow_untyped_calls = true
 strict_optional = true
 warn_redundant_casts = true
-
-[tool.poetry-dynamic-versioning]
-enable = true
-vcs = "git"
-versioning = "semver"  # Semantic Versioning
 
 # Ruff configuration (Edit as needed)
 [tool.ruff]
@@ -68,7 +64,9 @@ exclude = [
     "build",
     "dist",
     "node_modules",
-    "venv"
+    "venv",
+    # Additional directories to exclude
+    "tests",
 ]
 line-length = 100
 indent-width = 4
