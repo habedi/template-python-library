@@ -16,7 +16,7 @@ I'm sharing this template in case others find it useful.
 
 ## Features
 
-- **Poetry**: for dependency and virtual environment management.
+- **Poetry**: for dependency and virtual environment management. Although [uv](https://astral.sh/blog/uv) could be used as well.
 - **Makefile**: for managing common tasks like testing, linting, and formatting.
 - **GitHub Actions**: for running tests, linting, and deploying to PyPI.
 - **Badges**: for showing the status of tests, code quality, version, etc.
@@ -104,4 +104,3 @@ make publish
 > local environment.
 > For more information, refer to the [Poetry documentation](https://python-poetry.org/docs/repositories/)
 > and [GitHub documentation](https://docs.github.com/en/actions/reference/encrypted-secrets).
-

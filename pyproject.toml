@@ -16,8 +16,12 @@ classifiers = [
 ]
 keywords = ["template", "python", "library"]
 
+# Main dependencies
 [tool.poetry.dependencies]
 python = "^3.10"
+
+# Development dependencies
+[tool.poetry.group.dev.dependencies]
 poetry-dynamic-versioning = "^1.4.0"
 pytest = "^8.0.1"
 pytest-cov = "^6.0.0"
@@ -25,10 +29,17 @@ pytest-mock = "^3.14.0"
 mypy = "^1.11.1"
 ruff = "^0.9.3"
 
+#[build-system]
+#requires = ["poetry-core"]
+#build-backend = "poetry.core.masonry.api"
+
+#[build-system]
+#requires = ["pdm-backend"]
+#build-backend = "pdm.backend"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 pythonpath = [".", "package"]
@@ -76,13 +87,19 @@ src = ["src"]
 target-version = "py310"
 
 [tool.ruff.lint]
-select = ["ANN", "D", "E", "F", "I"]
+select = [
+    "ANN", # Annotations
+    "D",   # Docstrings
+    "E",   # Errors
+    "F",   # Formatting
+    "I",   # Imports
+    "S",   # Spacing
+    "W",   # Warnings
+]
 ignore = [
-    # Ignore docstring errors
-    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107",
+    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107",  # Ignore some docstring errors
 ]
 fixable = ["ALL"]
-unfixable = []
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.ruff.format]
