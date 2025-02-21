@@ -70,6 +70,7 @@ out2/
 
 # Dependency lock files (uncomment to ignore)
 poetry.lock
+uv.lock
 
 # Miscellaneous files and directories to ignore
 # Add any additional file patterns a directory names that should be ignored down here
