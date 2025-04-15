@@ -22,20 +22,17 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      # Install dependencies
       - name: Install Dependencies
         run: |
           make setup
           make install
 
-        # Run tests and generate the coverage report
       - name: Run Tests with Coverage
         run: |
           # make coverage
           make codecov
         continue-on-error: false
 
-        # Upload the coverage report to Codecov
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:

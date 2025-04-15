@@ -2,17 +2,18 @@
 
 <img src="assets/logo.svg" align="right" width="25%"/>
 
-[![Tests](https://github.com/habedi/template-python-library/actions/workflows/tests.yml/badge.svg)](https://github.com/habedi/template-python-library/actions/workflows/tests.yml)
-[![PyPI version](https://badge.fury.io/py/template-python-library-placeholder.svg)](https://badge.fury.io/py/template-python-library-placeholder)
-[![License](https://img.shields.io/github/license/habedi/template-python-library)](https://github.com/habedi/template-python-library/blob/main/LICENSE)
-[![Python version](https://img.shields.io/badge/Python-%3E=3.10-blue)](https://github.com/habedi/template-python-library)
-[![Pip downloads](https://img.shields.io/pypi/dm/template-python-library-placeholder.svg)](https://pypi.org/project/template-python-library-placeholder)
-[![CodeFactor](https://www.codefactor.io/repository/github/habedi/template-python-library/badge)](https://www.codefactor.io/repository/github/habedi/template-python-library)
-[![codecov](https://codecov.io/gh/habedi/template-python-library/graph/badge.svg?token=DV2OBA35MR)](https://codecov.io/gh/habedi/template-python-library)
+[![Tests](https://img.shields.io/github/actions/workflow/status/habedi/template-python-library/tests.yml?label=tests&style=flat&labelColor=555555&logo=github)](https://github.com/habedi/template-python-library/actions/workflows/tests.yml)
+[![Code Coverage](https://img.shields.io/codecov/c/github/habedi/template-python-library?style=flat&labelColor=555555&logo=codecov)](https://codecov.io/gh/habedi/template-python-library)
+[![Code Quality](https://img.shields.io/codefactor/grade/github/habedi/template-python-library?style=flat&labelColor=555555&logo=codefactor)](https://www.codefactor.io/repository/github/habedi/template-python-library)
+[![PyPI Version](https://img.shields.io/pypi/v/template-python-library-placeholder.svg?style=flat&labelColor=555555&logo=pypi)](https://pypi.org/project/template-python-library-placeholder/)
+[![Downloads](https://img.shields.io/pypi/dm/template-python-library-placeholder.svg?style=flat&labelColor=555555&logo=pypi)](https://pypi.org/project/template-python-library-placeholder/)
+[![Python Version](https://img.shields.io/badge/python-%3E=3.10-3776ab?style=flat&labelColor=555555&logo=python)](https://github.com/habedi/template-python-library)
+[![Documentation](https://img.shields.io/badge/docs-latest-007ec6?style=flat&labelColor=555555&logo=read-the-docs)](https://github.com/habedi/template-python-library/blob/main/docs)
+[![License](https://img.shields.io/badge/license-MIT-007ec6?style=flat&labelColor=555555&logo=open-source-initiative)](https://github.com/habedi/template-python-library/blob/main/LICENSE)
 
 This repository is a template to make the development of Python libraries easier.
 It includes a basic structure, dummy package, unit tests, and GitHub Actions workflows for testing and deployment.
-I'm sharing this template in case others find it useful.
+I am sharing this template in case others find it useful.
 
 ## Features
 
@@ -43,7 +44,9 @@ I'm sharing this template in case others find it useful.
 - `Poetry` (should work with `uv` as well)
 - `GNU Make`
 
-Tested on `Ubuntu 24.04 LTS` and `Debian 12`. But the template should work on other operating systems as well.
+> [!NOTE]
+> Tested on `Ubuntu 24.04 LTS` and `Debian 12`. But the template should work on other operating systems as well.
+> You also need to have GNU Make installed on your system if you want to use the `Makefile`.
 
 ### Setting Things Up
 

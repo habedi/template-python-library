@@ -14,16 +14,17 @@ trim_trailing_whitespace = true # Remove trailing whitespace
 
 # Python specific settings, complying with PEP 8 style guide, except for the line length
 [*.py]
-max_line_length = 100 # Limit lines to 100 characters
+max_line_length = 100
 
 # Markdown files
 [*.md]
-trim_trailing_whitespace = false # Don't remove trailing whitespace in Markdown files
+max_line_length = 120
+trim_trailing_whitespace = false
 
 # Bash scripts
 [*.sh]
 indent_size = 2
 
 # YAML files
-[*.yml]
+[*.{yml,yaml}]
 indent_size = 2
