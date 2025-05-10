@@ -32,9 +32,9 @@ dev = [
     "pytest>=8.0.1",
     "pytest-cov>=6.0.0",
     "pytest-mock>=3.14.0",
-    "pytest-benchmark>=5.1.0",
     "mypy>=1.11.1",
-    "ruff>=0.9.3"
+    "ruff>=0.9.3",
+    "pre-commit (>=4.2.0,<5.0.0)"
 ]
 
 [project.urls]

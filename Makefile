@@ -21,12 +21,8 @@ setup: ## Install system dependencies
 install: ## Install Python dependencies
 	$(POETRY) install --no-root --all-extras
 
-.PHONY: update
-update: ## Update Python dependencies
-	$(POETRY) update
-
 .PHONY: test
-test: ## Run the tests
+test: ## Run the tests (with coverage)
 	$(POETRY) run pytest
 
 .PHONY: lint
@@ -38,7 +34,7 @@ format: ## Format the Python files
 	$(POETRY) run ruff format
 
 .PHONY: typecheck
-typecheck: ## Type check the code
+typecheck: ## Typecheck the code
 	$(POETRY) run mypy .
 
 .PHONY: clean
@@ -53,24 +49,11 @@ clean: ## Remove temporary files and directories
 	rm -rf coverage.xml
 	rm -rf junit
 
-.PHONY: coverage
-coverage: ## Run the tests with code coverage
-	$(POETRY) run pytest --cov=src --cov-report=term-missing
-
-.PHONY: codecov
-codecov: ## Run tests with code coverage and generate report in XML format
-	$(POETRY) run pytest --cov=src --cov-branch --cov-report=xml
-
 .PHONY: build
-build: ## Build the wheel and source distribution
+build: ## Build the wheel and source distribution files
 	$(POETRY) build
 
 .PHONY: publish
 publish: ## Publish the library to PyPI (requires PYPI_TOKEN to be set)
 	$(POETRY) config pypi-token.pypi $(PYPI_TOKEN)
 	$(POETRY) publish --build
-
-.PHONY: precommit
-precommit: ## Install and run pre-commit hooks
-	$(POETRY) run pre-commit install
-	$(POETRY) run pre-commit run --all-files
