@@ -35,12 +35,9 @@ jobs:
 
       - name: Run Tests with Coverage
         run: |
-          # make coverage
-          make codecov
-        continue-on-error: false
+          make test
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-        continue-on-error: true
