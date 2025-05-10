@@ -68,7 +68,7 @@ asyncio_default_test_loop_scope = "function"
 [tool.coverage.run]
 branch = true
 parallel = true
-source = ["src"]
+source = ["src/package"]
 omit = [
     "tests/*",
     "benches/*",
