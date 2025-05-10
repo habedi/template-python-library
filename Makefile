@@ -19,7 +19,7 @@ setup: ## Install system dependencies
 
 .PHONY: install
 install: ## Install Python dependencies
-	$(POETRY) install --no-root --with=dev
+	$(POETRY) install --no-root --all-extras
 
 .PHONY: update
 update: ## Update Python dependencies
@@ -31,11 +31,11 @@ test: ## Run the tests
 
 .PHONY: lint
 lint: ## Run the linter checks
-	$(POETRY) run ruff check .
+	$(POETRY) run ruff check --fix
 
 .PHONY: format
 format: ## Format the Python files
-	$(POETRY) run ruff format .
+	$(POETRY) run ruff format
 
 .PHONY: typecheck
 typecheck: ## Type check the code
@@ -70,13 +70,7 @@ publish: ## Publish the library to PyPI (requires PYPI_TOKEN to be set)
 	$(POETRY) config pypi-token.pypi $(PYPI_TOKEN)
 	$(POETRY) publish --build
 
-.PHONY: check
-check: lint typecheck test ## Run linter checks, typechecking, and tests
-
 .PHONY: precommit
 precommit: ## Install and run pre-commit hooks
 	$(POETRY) run pre-commit install
 	$(POETRY) run pre-commit run --all-files
-
-.PHONY: all
-all: install check build ## Install Python dependencies, run lint, typecheck, tests, and build the library

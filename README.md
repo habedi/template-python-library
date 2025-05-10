@@ -1,6 +1,6 @@
 # Template for a Python Library
 
-<img src="assets/logo.svg" align="right" width="25%"/>
+<img src="docs/assets/images/logo.svg" align="right" width="25%"/>
 
 [![Tests](https://img.shields.io/github/actions/workflow/status/habedi/template-python-library/tests.yml?label=tests&style=flat&labelColor=555555&logo=github)](https://github.com/habedi/template-python-library/actions/workflows/tests.yml)
 [![Code Coverage](https://img.shields.io/codecov/c/github/habedi/template-python-library?style=flat&labelColor=555555&logo=codecov)](https://codecov.io/gh/habedi/template-python-library)
@@ -41,7 +41,7 @@ I am sharing this template in case others find it useful.
 ### Prerequisites
 
 - `Python` >= 3.10
-- `Poetry` (should work with `uv` as well)
+- `Poetry 2.0+` (should work with `uv` as well)
 - `GNU Make`
 
 > [!NOTE]
