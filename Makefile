@@ -1,5 +1,13 @@
 # Generic Makefile for Python projects
 
+# Load environment variables from .env file
+ifneq (,$(wildcard ./.env))
+    include .env
+    export $(shell sed 's/=.*//' .env)
+else
+    $(warning .env file not found. Environment variables not loaded.)
+endif
+
 # Variables
 PYTHON      ?= python3
 PIP         ?= pip3
@@ -47,6 +55,14 @@ format: ## Format code
 .PHONY: typecheck
 typecheck: ## Typecheck code
 	$(DEP_MNGR) run mypy .
+
+.PHONY: precommit
+precommit: ## Run pre-commit hooks
+	$(DEP_MNGR) run pre-commit run --all-files
+
+.PHONY: precommit-install
+precommit-install: ## Install pre-commit hooks
+	$(DEP_MNGR) run pre-commit install
 
 # Documentation
 .PHONY: docs
