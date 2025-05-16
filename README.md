@@ -1,108 +1,56 @@
-# Template for a Python Library
+## Python Library Template
 
-<img src="assets/logo.svg" align="right" width="25%"/>
+<div align="center">
+  <picture>
+    <img alt="Python Library Template" src="docs/assets/images/logo.svg" height="25%" width="25%">
+  </picture>
+</div>
 
-[![Tests](https://img.shields.io/github/actions/workflow/status/habedi/template-python-library/tests.yml?label=tests&style=flat&labelColor=555555&logo=github)](https://github.com/habedi/template-python-library/actions/workflows/tests.yml)
-[![Code Coverage](https://img.shields.io/codecov/c/github/habedi/template-python-library?style=flat&labelColor=555555&logo=codecov)](https://codecov.io/gh/habedi/template-python-library)
-[![Code Quality](https://img.shields.io/codefactor/grade/github/habedi/template-python-library?style=flat&labelColor=555555&logo=codefactor)](https://www.codefactor.io/repository/github/habedi/template-python-library)
-[![PyPI Version](https://img.shields.io/pypi/v/template-python-library-placeholder.svg?style=flat&labelColor=555555&logo=pypi)](https://pypi.org/project/template-python-library-placeholder/)
-[![Downloads](https://img.shields.io/pypi/dm/template-python-library-placeholder.svg?style=flat&labelColor=555555&logo=pypi)](https://pypi.org/project/template-python-library-placeholder/)
-[![Python Version](https://img.shields.io/badge/python-%3E=3.10-3776ab?style=flat&labelColor=555555&logo=python)](https://github.com/habedi/template-python-library)
-[![Documentation](https://img.shields.io/badge/docs-latest-007ec6?style=flat&labelColor=555555&logo=read-the-docs)](https://github.com/habedi/template-python-library/blob/main/docs)
-[![License](https://img.shields.io/badge/license-MIT-007ec6?style=flat&labelColor=555555&logo=open-source-initiative)](https://github.com/habedi/template-python-library/blob/main/LICENSE)
+[![Tests](https://img.shields.io/github/actions/workflow/status/habedi/template-python-library/tests.yml?label=tests&style=flat&labelColor=333333&logo=github&logoColor=white)](https://github.com/habedi/template-python-library/actions/workflows/tests.yml)
+[![Code Coverage](https://img.shields.io/codecov/c/github/habedi/template-python-library?style=flat&label=coverage&labelColor=333333&logo=codecov&logoColor=white)](https://codecov.io/gh/habedi/template-python-library)
+[![Code Quality](https://img.shields.io/codefactor/grade/github/habedi/template-python-library?style=flat&label=code%20quality&labelColor=333333&logo=codefactor&logoColor=white)](https://www.codefactor.io/repository/github/habedi/template-python-library)
+[![PyPI Version](https://img.shields.io/pypi/v/template-python-library-placeholder.svg?style=flat&label=pypi&labelColor=333333&logo=pypi&logoColor=white&color=3775a9)](https://pypi.org/project/template-python-library-placeholder/)
+[![Downloads](https://img.shields.io/pypi/dm/template-python-library-placeholder.svg?style=flat&label=downloads&labelColor=333333&logo=pypi&logoColor=white&color=cc8400)](https://pypi.org/project/template-python-library-placeholder/)
+[![Python Version](https://img.shields.io/badge/python-%3E=3.10-3776ab?style=flat&labelColor=333333&logo=python&logoColor=white)](https://github.com/habedi/template-python-library)
+[![Documentation](https://img.shields.io/badge/docs-latest-8ca0d7?style=flat&labelColor=333333&logo=read-the-docs&logoColor=white)](https://github.com/habedi/template-python-library/blob/main/docs)
+[![License](https://img.shields.io/badge/license-MIT-00acc1?style=flat&labelColor=333333&logo=open-source-initiative&logoColor=white)](https://github.com/habedi/template-python-library/blob/main/LICENSE)
+[![Managed with Poetry](https://img.shields.io/badge/managed%20with-Poetry-60A5FA?style=flat&logo=poetry&labelColor=333333&logoColor=white)](https://python-poetry.org/)
+[![Managed with uv](https://img.shields.io/badge/managed%20with-uv-000000?style=flat&logo=uv&labelColor=333333&logoColor=white)](https://astral.sh/uv)
+[![Makefile](https://img.shields.io/badge/managed%20with-Makefile-000000?style=flat&logo=gnu&labelColor=333333&logoColor=white)](https://www.gnu.org/software/make/)
 
-This repository is a template to make the development of Python libraries easier.
-It includes a basic structure, dummy package, unit tests, and GitHub Actions workflows for testing and deployment.
+---
+
+This is a template repository for creating new Python libraries.
+It includes a basic structure, a dummy Python package, unit tests, and
+GitHub Actions workflows for testing and deployment.
 I am sharing this template in case others find it useful.
 
-## Features
+### Features
 
-- **Poetry**: for dependency and virtual environment management.
+- **Poetry (or uv)**: for dependency management, packaging, publishing, etc.
 - **Makefile**: for managing common tasks like testing, linting, and formatting.
 - **GitHub Actions**: for running tests, linting, and deploying to PyPI.
 - **Badges**: for showing the status of tests, code quality, version, etc.
-
-## Structure
-
-- `.github`: GitHub Actions workflows.
-- `assets`: Asset files (e.g., images, logos, etc.).
-- `docs`: Documentation for the library.
-- `src`: Library's source code.
-- `tests`: Unit tests.
-- `.editorconfig`: Editor settings for consistent coding style.
-- `.gitignore`: Excludes files generated by Python and Poetry.
-- `.gitattributes`: Git LFS configuration.
-- `LICENSE`: License file.
-- `Makefile`: Manage tasks like testing, linting, and formatting.
-- `pyproject.toml`: Poetry's configuration file.
-
-## Getting Started
+- **Default files**: for configuration, testing, and documentation, like `.gitignore`, `README.md`, `LICENSE`, etc.
 
 ### Prerequisites
 
 - `Python` >= 3.10
-- `Poetry` (should work with `uv` as well)
+- `Poetry 2.0+` (or any other modern Python dependency manager like `uv`)
 - `GNU Make`
 
-> [!NOTE]
-> Tested on `Ubuntu 24.04 LTS` and `Debian 12`. But the template should work on other operating systems as well.
-> You also need to have GNU Make installed on your system if you want to use the `Makefile`.
+### Usage
 
-### Setting Things Up
+Use the `Use this template` button on GitHub to create a new repository based on this template.
+Modify the `README.md` file and other files as needed.
+Run `make help` to see all available commands for managing different tasks.
 
-1. **Clone the repository**:
-    ```sh
-    git clone https://github.com/habedi/template-python-library.git
-    cd template-python-library
-    ```
+---
 
-2. **Install dependencies**:
-    ```sh
-    make setup
-    make install
-    ```
+### Contributing
 
-### Development Workflow Management
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to make a contribution.
 
-```sh
-# See the help for available commands
-make help
-```
+### License
 
-```sh
-# Run the unit tests
-make test
-```
-
-```sh
-# Lint the code
-make lint
-```
-
-```sh
-# Format the code
-make format
-```
-
-```sh
-# Perform type checking
-make typecheck
-```
-
-```sh
-# Build the library
-make build
-```
-
-```sh
-# Publish the library to PyPI
-make publish
-```
-
-> [!NOTE]
-> To publish the library to PyPI, make sure you have a PyPI account and a valid API token.
-> Set the `PYPI_API_TOKEN` secret in your GitHub repository settings, and `PYPI_TOKEN` environment variable in your
-> local environment.
-> For more information, refer to the [Poetry documentation](https://python-poetry.org/docs/repositories/)
-> and [GitHub documentation](https://docs.github.com/en/actions/reference/encrypted-secrets).
-
+This template is licensed under the MIT License ([LICENSE](LICENSE) or https://opensource.org/licenses/MIT)

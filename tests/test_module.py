@@ -1,9 +1,10 @@
-"""Tests for module.py"""
+"""Tests for the library.package"""
 
-from src.package.module import DummyClass
+from library.package import DummyClass
 
 
-# Let's write some unit tests using pytest and arrange-act-assert pattern
+# Let us write some unit tests using pytest and arrange-act-assert pattern
+# We will follow the Arrange-Act-Assert pattern for our tests
 
 
 def test_dummy_class():
