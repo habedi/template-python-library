@@ -29,7 +29,7 @@ setup: ## Install system dependencies and dependency manager (e.g., Poetry)
 
 .PHONY: install
 install: ## Install Python dependencies
-	$(DEP_MNGR) install --no-root --all-extras
+	$(DEP_MNGR) install --all-extras
 
 # Quality & Testing
 .PHONY: test
