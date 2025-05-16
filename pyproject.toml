@@ -39,7 +39,8 @@ dev = [
     "griffe (>=1.7.3,<2.0.0)",
     "mkdocs (>=1.6.1,<2.0.0)",
     "mkdocstrings-python (>=1.16.10,<2.0.0)",
-    "mkdocs-material (>=9.6.14,<10.0.0)"
+    "mkdocs-material (>=9.6.14,<10.0.0)",
+    "types-requests (>=2.32.0.20250515,<3.0.0.0)"
 ]
 
 [project.urls]
@@ -55,7 +56,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
+pythonpath = ["library"]
 testpaths = ["tests"]
 addopts = [
     "--tb=short",
@@ -73,7 +74,7 @@ asyncio_default_test_loop_scope = "function"
 [tool.coverage.run]
 branch = true
 parallel = true
-source = ["library"]
+source = ["."]
 omit = ["tests/*"]
 
 [tool.coverage.report]
