@@ -52,6 +52,7 @@ Documentation = "https://github.com/habedi/template-python-library/blob/main/doc
 [tool.poetry]
 include = ["README.md"]
 packages = [{ include = "library" }]
+package-mode = true
 
 [build-system]
 requires = ["poetry-core"]
