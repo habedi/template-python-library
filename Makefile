@@ -57,7 +57,7 @@ typecheck: ## Typecheck code
 	$(DEP_MNGR) run mypy .
 
 .PHONY: precommit
-precommit: ## Run pre-commit hooks
+precommit: ## Run pre-commit hooks manually
 	$(DEP_MNGR) run pre-commit run --all-files
 
 .PHONY: precommit-install
