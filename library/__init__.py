@@ -1,5 +1,5 @@
 import logging
-from importlib.metadata import version, PackageNotFoundError
+from importlib.metadata import PackageNotFoundError, version
 
 from package import DummyClass
 
