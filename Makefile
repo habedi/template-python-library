@@ -56,13 +56,15 @@ format: ## Format code
 typecheck: ## Typecheck code
 	$(DEP_MNGR) run mypy .
 
-.PHONY: precommit
-precommit: ## Run pre-commit hooks manually
-	$(DEP_MNGR) run pre-commit run --all-files
+.PHONY: setup-hooks
+setup-hooks: ## Install all pre-commit hooks (pre-commit and pre-push)
+	$(DEP_MNGR) run pre-commit install --hook-type pre-commit
+	$(DEP_MNGR) run pre-commit install --hook-type pre-push
+	$(DEP_MNGR) run pre-commit install-hooks
 
-.PHONY: precommit-install
-precommit-install: ## Install pre-commit hooks
-	$(DEP_MNGR) run pre-commit install
+.PHONY: test-hooks
+test-hooks: ## Test pre-commit hooks on all files
+	$(DEP_MNGR) run pre-commit run --all-files
 
 # Documentation
 .PHONY: docs
