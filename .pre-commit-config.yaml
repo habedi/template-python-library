@@ -28,21 +28,25 @@ repos:
         entry: make format
         language: system
         pass_filenames: false
+        stages: [ pre-commit ]
 
       - id: lint
         name: lint
         entry: make lint
         language: system
         pass_filenames: false
+        stages: [ pre-commit ]
 
       - id: typecheck
         name: typecheck
         entry: make typecheck
         language: system
         pass_filenames: false
+        stages: [ pre-commit ]
 
       - id: test
         name: test
         entry: make test
         language: system
         pass_filenames: false
+        stages: [ pre-push ]
