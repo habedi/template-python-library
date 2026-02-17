@@ -1,7 +1,6 @@
 default_stages: [ pre-push ]
-default_language_version:
-  python: python3.11
 fail_fast: false
+exclude: '(^external/|^docs/)'
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -24,29 +23,28 @@ repos:
   - repo: local
     hooks:
       - id: format
-        name: format
+        name: Format Code
         entry: make format
         language: system
         pass_filenames: false
         stages: [ pre-commit ]
 
       - id: lint
-        name: lint
+        name: Run Linter Checks
         entry: make lint
         language: system
         pass_filenames: false
         stages: [ pre-commit ]
 
       - id: typecheck
-        name: typecheck
+        name: Run Typechecks
         entry: make typecheck
         language: system
         pass_filenames: false
         stages: [ pre-commit ]
 
       - id: test
-        name: test
+        name: Run Tests
         entry: make test
         language: system
         pass_filenames: false
-        stages: [ pre-push ]
