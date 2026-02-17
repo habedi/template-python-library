@@ -2,19 +2,21 @@ name: Build and Deploy Docs
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
-# Only allow one deployment at a time running
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  deploy_docs:
+  publish-docs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
