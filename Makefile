@@ -27,7 +27,7 @@ help: ## Show help messages for all available targets
 	@grep -E '^[a-zA-Z_-]+:.*## .*$$' Makefile | \
 	awk 'BEGIN {FS = ":.*## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-# Setup & Installation
+# Setup and Installation
 .PHONY: setup
 setup: ## Install system dependencies and dependency manager (default: Poetry)
 	sudo apt-get update
@@ -40,7 +40,7 @@ install: ## Install Python dependencies
 	$(DEP_MNGR) install --all-extras --no-interaction # For Poetry
 	#(DEP_MNGR) sync --all-extras # For uv
 
-# Quality & Testing
+# Quality and Testing
 .PHONY: test
 test: ## Run tests
 	$(DEP_MNGR) run pytest
@@ -72,7 +72,7 @@ test-hooks: ## Test Git hooks on all files
 docs: ## Build documentation
 	$(DEP_MNGR) run mkdocs build
 
-# Build & Publish
+# Build and Publish
 .PHONY: build
 build: ## Build distributions
 	$(DEP_MNGR) build
