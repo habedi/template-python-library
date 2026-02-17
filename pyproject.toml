@@ -1,6 +1,6 @@
 [project]
 name = "template-python-library"
-version = "0.1.0a1"
+version = "0.1.0-alpha.1"
 description = "A template for developing Python libraries"
 readme = "README.md"
 license = { text = "MIT" }
