@@ -29,7 +29,7 @@ help: ## Show help messages for all available targets
 
 # Setup & Installation
 .PHONY: setup
-setup: ## Install system dependencies and dependency manager (e.g., Poetry)
+setup: ## Install system dependencies and dependency manager (default: Poetry)
 	sudo apt-get update
 	sudo apt-get install -y python3-pip
 	$(PIP) install --upgrade pip
@@ -37,7 +37,7 @@ setup: ## Install system dependencies and dependency manager (e.g., Poetry)
 
 .PHONY: install
 install: ## Install Python dependencies
-	$(DEP_MNGR) install --all-extras --no-interaction --no-root # For Poetry
+	$(DEP_MNGR) install --all-extras --no-interaction # For Poetry
 	#(DEP_MNGR) sync --all-extras # For uv
 
 # Quality & Testing
