@@ -10,13 +10,9 @@
 [![Code Coverage](https://img.shields.io/codecov/c/github/habedi/template-python-library?style=flat&label=coverage&labelColor=333333&logo=codecov&logoColor=white)](https://codecov.io/gh/habedi/template-python-library)
 [![Code Quality](https://img.shields.io/codefactor/grade/github/habedi/template-python-library?style=flat&label=code%20quality&labelColor=333333&logo=codefactor&logoColor=white)](https://www.codefactor.io/repository/github/habedi/template-python-library)
 [![PyPI Version](https://img.shields.io/pypi/v/template-python-library-placeholder.svg?style=flat&label=pypi&labelColor=333333&logo=pypi&logoColor=white&color=3775a9)](https://pypi.org/project/template-python-library-placeholder/)
-[![Downloads](https://img.shields.io/pypi/dm/template-python-library-placeholder.svg?style=flat&label=downloads&labelColor=333333&logo=pypi&logoColor=white&color=cc8400)](https://pypi.org/project/template-python-library-placeholder/)
 [![Python Version](https://img.shields.io/badge/python-%3E=3.10-3776ab?style=flat&labelColor=333333&logo=python&logoColor=white)](https://github.com/habedi/template-python-library)
 [![Documentation](https://img.shields.io/badge/docs-latest-8ca0d7?style=flat&labelColor=333333&logo=read-the-docs&logoColor=white)](https://github.com/habedi/template-python-library/blob/main/docs)
 [![License](https://img.shields.io/badge/license-MIT-00acc1?style=flat&labelColor=333333&logo=open-source-initiative&logoColor=white)](https://github.com/habedi/template-python-library/blob/main/LICENSE)
-[![Managed with Poetry](https://img.shields.io/badge/managed%20with-Poetry-60A5FA?style=flat&logo=poetry&labelColor=333333&logoColor=white)](https://python-poetry.org/)
-[![Managed with uv](https://img.shields.io/badge/managed%20with-uv-000000?style=flat&logo=uv&labelColor=333333&logoColor=white)](https://astral.sh/uv)
-[![Makefile](https://img.shields.io/badge/managed%20with-Makefile-000000?style=flat&logo=gnu&labelColor=333333&logoColor=white)](https://www.gnu.org/software/make/)
 
 ---
 
