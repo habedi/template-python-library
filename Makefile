@@ -1,5 +1,13 @@
 # Generic Makefile for Python projects
 
+# Load environment variables from .env file
+ifneq (,$(wildcard ./.env))
+    include .env
+    export $(shell sed 's/=.*//' .env)
+else
+    $(warning .env file not found. Environment variables not loaded.)
+endif
+
 # Variables
 PYTHON      ?= python3
 PIP         ?= pip3
@@ -15,13 +23,13 @@ TMP_DIRS   = site
 .DEFAULT_GOAL := help
 
 .PHONY: help
-help: ## Show help for all targets
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
-	awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+help: ## Show help messages for all available targets
+	@grep -E '^[a-zA-Z_-]+:.*## .*$$' Makefile | \
+	awk 'BEGIN {FS = ":.*## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-# Setup & Installation
+# Setup and Installation
 .PHONY: setup
-setup: ## Install system dependencies and dependency manager (e.g., Poetry)
+setup: ## Install system dependencies and dependency manager (default: Poetry)
 	sudo apt-get update
 	sudo apt-get install -y python3-pip
 	$(PIP) install --upgrade pip
@@ -29,9 +37,10 @@ setup: ## Install system dependencies and dependency manager (e.g., Poetry)
 
 .PHONY: install
 install: ## Install Python dependencies
-	$(DEP_MNGR) install --all-extras --no-interaction
+	$(DEP_MNGR) install --all-extras --no-interaction # For Poetry
+	#(DEP_MNGR) sync --all-extras # For uv
 
-# Quality & Testing
+# Quality and Testing
 .PHONY: test
 test: ## Run tests
 	$(DEP_MNGR) run pytest
@@ -48,12 +57,22 @@ format: ## Format code
 typecheck: ## Typecheck code
 	$(DEP_MNGR) run mypy .
 
+.PHONY: setup-hooks
+setup-hooks: ## Install Git hooks (pre-commit and pre-push)
+	$(DEP_MNGR) run pre-commit install --hook-type pre-commit
+	$(DEP_MNGR) run pre-commit install --hook-type pre-push
+	$(DEP_MNGR) run pre-commit install-hooks
+
+.PHONY: test-hooks
+test-hooks: ## Test Git hooks on all files
+	$(DEP_MNGR) run pre-commit run --all-files
+
 # Documentation
 .PHONY: docs
 docs: ## Build documentation
 	$(DEP_MNGR) run mkdocs build
 
-# Build & Publish
+# Build and Publish
 .PHONY: build
 build: ## Build distributions
 	$(DEP_MNGR) build

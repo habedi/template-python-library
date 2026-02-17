@@ -65,3 +65,4 @@
 
 # Exclude files from language stats (GitHub Linguist)
 *.ipynb linguist-vendored
+Makefile linguist-vendored

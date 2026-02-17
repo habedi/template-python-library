@@ -1,6 +1,6 @@
 [project]
 name = "template-python-library"
-version = "0.1.0a1"
+version = "0.1.0-alpha.1"
 description = "A template for developing Python libraries"
 readme = "README.md"
 license = { text = "MIT" }
@@ -10,37 +10,46 @@ authors = [
 maintainers = [
     { name = "Hassan Abedi", email = "hassan.abedi.t@gmail.com" }
 ]
-keywords = ["template", "python", "library"]
+keywords = ["template", "python", "library", "package"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development :: Libraries",
-    "Topic :: Software Development :: Libraries :: Python Modules"
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
 ]
 
 requires-python = ">=3.10,<4.0"
-dependencies = []
+dependencies = [
+    "python-dotenv (>=1.1.0,<2.0.0)"
+]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.0.1",
-    "pytest-cov>=6.0.0",
-    "pytest-mock>=3.14.0",
-    "pytest-asyncio (>=0.26.0,<0.27.0)",
-    "mypy>=1.11.1",
-    "ruff>=0.9.3",
+    "pytest (>=8.0.1,<10.0.0)",
+    "pytest-cov (>=6.0.0,<8.0.0)",
+    "pytest-mock (>=3.14.0,<4.0.0)",
+    "pytest-asyncio (>=1.1.0,<2.0.0)",
+    "mypy (>=1.11.1,<2.0.0)",
+    "ruff (>=0.9.3,<1.0.0)",
     "pre-commit (>=4.2.0,<5.0.0)",
-    "griffe (>=1.7.3,<2.0.0)",
+    "icecream (>=2.1.4,<3.0.0)",
     "mkdocs (>=1.6.1,<2.0.0)",
+    "mkdocs-material (>=9.6.12,<10.0.0)",
     "mkdocstrings-python (>=1.16.10,<2.0.0)",
-    "mkdocs-material (>=9.6.14,<10.0.0)",
-    "types-requests (>=2.32.0.20250515,<3.0.0.0)"
+    "pyyaml (>=6.0.1,<7.0.0)",
+    "rundoc (>=0.2.3,<0.3.0)",
+    "hypothesis (>=6.150.2,<7.0.0)",
+    "griffe (>=1.7.3,<2.0.0)",
 ]
 
 [project.urls]
@@ -52,8 +61,8 @@ include = ["README.md"]
 packages = [{ include = "library" }]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling>=1.20", "build>=1.0"]
+build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 pythonpath = ["library"]
@@ -99,8 +108,7 @@ exclude = [
     ".bzr", ".direnv", ".eggs", ".git", ".git-rewrite", ".hg", ".mypy_cache",
     ".nox", ".pants.d", ".pytype", ".ruff_cache", ".svn", ".tox", ".venv",
     "__pypackages__", "_build", "buck-out", "build", "dist", "node_modules",
-    "venv",
-    "tests"
+    "venv", "tests"
 ]
 line-length = 100
 indent-width = 4
