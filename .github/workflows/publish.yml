@@ -22,19 +22,19 @@ jobs:
     needs: call_tests
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set Up Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.14"
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
           make setup
           make install
 
-      - name: Build and Publish Package
+      - name: Build and publish package
         run: |
           PYPI_TOKEN=${{ secrets.PYPI_API_TOKEN }} make publish # Need `PYPI_API_TOKEN` secret
