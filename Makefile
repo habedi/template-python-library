@@ -1,17 +1,7 @@
-# Generic Makefile for Python projects
-
-# Load environment variables from .env file
-ifneq (,$(wildcard ./.env))
-    include .env
-    export $(shell sed 's/=.*//' .env)
-else
-    $(warning .env file not found. Environment variables not loaded.)
-endif
-
 # Variables
 PYTHON      ?= python3
 PIP         ?= pip3
-DEP_MNGR    ?= poetry
+DEP_MNGR    ?= uv
 DOCS_DIR   ?= docs
 
 # Directories and files to clean
@@ -29,7 +19,7 @@ help: ## Show help messages for all available targets
 
 # Setup and Installation
 .PHONY: setup
-setup: ## Install system dependencies and dependency manager (default: Poetry)
+setup: ## Install system dependencies and dependency manager
 	sudo apt-get update
 	sudo apt-get install -y python3-pip
 	$(PIP) install --upgrade pip
@@ -37,8 +27,7 @@ setup: ## Install system dependencies and dependency manager (default: Poetry)
 
 .PHONY: install
 install: ## Install Python dependencies
-	$(DEP_MNGR) install --all-extras --no-interaction # For Poetry
-	#(DEP_MNGR) sync --all-extras # For uv
+	$(DEP_MNGR) sync --all-extras
 
 # Quality and Testing
 .PHONY: test
