@@ -30,7 +30,7 @@ classifiers = [
 
 requires-python = ">=3.10,<4.0"
 dependencies = [
-    "python-dotenv (>=1.1.0,<2.0.0)"
+    "python-dotenv>=1.1.0"
 ]
 
 [project.optional-dependencies]
@@ -60,11 +60,11 @@ Documentation = "https://github.com/habedi/template-python-library/blob/main/doc
 packages = ["library"]
 
 [build-system]
-requires = ["hatchling>=1.20", "build>=1.0"]
+requires = ["hatchling>=1.20"]
 build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
-pythonpath = ["library"]
+pythonpath = ["."]
 testpaths = ["tests"]
 addopts = [
     "--tb=short",
@@ -100,14 +100,14 @@ check_untyped_defs = true
 warn_return_any = true
 strict_optional = true
 warn_redundant_casts = true
-exclude = "^(benches/|examples/|tests/)"
+exclude = "^(benches/|examples/)"
 
 [tool.ruff]
 exclude = [
     ".bzr", ".direnv", ".eggs", ".git", ".git-rewrite", ".hg", ".mypy_cache",
     ".nox", ".pants.d", ".pytype", ".ruff_cache", ".svn", ".tox", ".venv",
     "__pypackages__", "_build", "buck-out", "build", "dist", "node_modules",
-    "venv", "tests"
+    "venv"
 ]
 line-length = 100
 indent-width = 4
@@ -132,4 +132,4 @@ line-ending = "auto"
 convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = []
+"tests/**/*.py" = ["ANN"]

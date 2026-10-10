@@ -1556,7 +1556,7 @@ requires-dist = [
     { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=1.1.0,<2.0.0" },
     { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=6.0.0" },
     { name = "pytest-mock", marker = "extra == 'dev'", specifier = ">=3.14.0,<4.0.0" },
-    { name = "python-dotenv", specifier = ">=1.1.0,<2.0.0" },
+    { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "pyyaml", marker = "extra == 'dev'", specifier = ">=6.0.1,<7.0.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.9.3,<1.0.0" },
     { name = "rundoc", marker = "extra == 'dev'", specifier = ">=0.2.3,<0.3.0" },

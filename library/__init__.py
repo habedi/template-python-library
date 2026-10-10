@@ -1,7 +1,7 @@
 import logging
 from importlib.metadata import PackageNotFoundError, version
 
-from package import DummyClass
+from .package import DummyClass
 
 _logger = logging.getLogger(__name__)
 
@@ -14,4 +14,4 @@ except PackageNotFoundError:
         "Is the library installed correctly?"
     )
 
-__all__ = ["DummyClass"]
+__all__ = ["DummyClass", "__version__"]
